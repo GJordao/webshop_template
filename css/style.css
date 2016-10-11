@@ -1,0 +1,11 @@
+body{
+	background-color: #e6e8e5;
+}
+.menuItem{
+	height: 180px;
+	width: 180px;
+	display: block;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 20px;
+}
