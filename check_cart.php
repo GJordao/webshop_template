@@ -31,7 +31,16 @@
 
         <div class="col-md-9 col-md-push-3">
             <?php
-                for ($i = 0; $i < count($data); $i++) 
+                foreach ($data as $key => $value)
+                {
+                    $id = $key;
+                    $query = "SELECT * FROM products WHERE id=\"".$id."\";";
+                    $result = $mysqli->query($query);
+                    $product = mysqli_fetch_array($result);
+                     echo '<div class="menuItem"><a href="remFromCart.php?id='.$product['id'].'"><img src="'.$product['url'].'" alt="'.$product['name'].'" style="height: 100%; width=100%;"/></a> '.$product['name'].' - Preço: '.$product['price']*$value.'€ - Quant: '.$value.'</div>';
+
+                }
+                /*for ($i = 0; $i < count($data); $i++) 
                 {
                     $id = $data[$i];
                     $query = "SELECT * FROM products WHERE id=\"".$id."\";";
@@ -41,7 +50,7 @@
                     {
                         echo '<div class="menuItem"><a href="remFromCart.php?id='.$product['id'].'"><img src="'.$product['url'].'" alt="'.$product['name'].'" style="height: 100%; width=100%;"/></a> '.$product['name'].' - Preço: '.$product['price'].'€</div>';
                     }                   
-                }
+                }*/
             ?>               
         </div>
     </body>
